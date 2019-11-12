@@ -9,15 +9,15 @@
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
     <groupId>com.damon</groupId>
-    <artifactId>user</artifactId>
+    <artifactId>api-user</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>user</name>
+    <name>api-user</name>
     <description>Demo project for Spring Boot</description>
 
     <properties>
         <java.version>1.8</java.version>
         <spring-cloud.version>Hoxton.RC1</spring-cloud.version>
-        <docker.image.prefix>damon</docker.image.prefix>
+        <docker.image.prefix>registry.cn-beijing.aliyuncs.com/damondocker</docker.image.prefix>
     </properties>
 
     <dependencies>
@@ -91,7 +91,6 @@
     </dependencyManagement>
 
     <build>
-        <finalName>api-user</finalName>
         <plugins>
             <plugin>
                 <groupId>org.springframework.boot</groupId>
@@ -103,9 +102,6 @@
                 <version>1.3.6</version>
                 <configuration>
                     <repository>${docker.image.prefix}/${project.artifactId}</repository>
-                    <buildArgs>
-                        <JAR_FILE>target/${project.build.finalName}.jar</JAR_FILE>
-                    </buildArgs>
                 </configuration>
             </plugin>
         </plugins>
